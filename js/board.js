@@ -30,7 +30,7 @@ async function initBoard() {
  */
 
 async function downloadServer() {
-    setURL('https://thomas-wagner.developerakademie.net/smallest_backend_ever');
+    setURL('https://join.wagmedia.de/smallest_backend_ever');
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem('allTasks')) || [];
     contact = JSON.parse(backend.getItem('contact')) || [];

@@ -25,7 +25,7 @@ let taskStatus = 'todo';
  * 
  */
 async function initAddTask() {
-    setURL('https://thomas-wagner.developerakademie.net/smallest_backend_ever');
+    setURL('https://join.wagmedia.de/smallest_backend_ever');
     await downloadFromServer();
     allTasks = JSON.parse(backend.getItem('allTasks')) || [];
     contact = JSON.parse(backend.getItem('contact')) || [];
@@ -142,10 +142,21 @@ document.addEventListener('mouseup', function (e) {
     let container = document.getElementById('dropdownAssignedTo');
     if (container) {
         if (!container.contains(e.target)) {
-            renderAssignedToContent()
+            renderAssignedToContent();
+            closeAssignedToDropdown();
         }
     }
 });
+
+function closeAssignedToDropdown() {
+    document.getElementById('dropdownAssignedTo').classList.remove('showAllCategorys');
+    document.getElementById('dropdownAssignedTo').classList.remove('categorysDropdownSelectHTML');
+    document.getElementById('dropdownAssignedTo').style.border = "1px solid #D1D1D1";
+    let content = document.getElementById('dropdownAssignedTo');
+    content.innerHTML = showAssignedToHTML();
+    renderAssignedToOptions();
+    addChecked();
+}
 
 
 
